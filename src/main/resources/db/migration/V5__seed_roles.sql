@@ -1,0 +1,11 @@
+-- Roles base del sistema (idempotente)
+INSERT INTO roles (name) VALUES ('ADMIN')
+    ON CONFLICT (name) DO NOTHING;
+INSERT INTO roles (name) VALUES ('MECHANIC')
+    ON CONFLICT (name) DO NOTHING;
+INSERT INTO roles (name) VALUES ('RECEPTIONIST')
+    ON CONFLICT (name) DO NOTHING;
+INSERT INTO roles (name) VALUES ('CASHIER')
+    ON CONFLICT (name) DO NOTHING;
+INSERT INTO roles (name) VALUES ('INVENTORY_MANAGER')
+    ON CONFLICT (name) DO NOTHING;

@@ -1,0 +1,2 @@
+ALTER TABLE work_orders
+ADD COLUMN work_order_status VARCHAR(20) NOT NULL DEFAULT 'PENDIENTE';
