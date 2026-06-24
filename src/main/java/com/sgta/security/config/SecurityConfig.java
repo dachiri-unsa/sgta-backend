@@ -37,7 +37,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         var configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("https://6a3894503457d3ae088b3849--sgta-project.netlify.app"));
+        configuration.setAllowedOrigins(List.of("http://localhost:5173"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
@@ -125,6 +125,16 @@ public class SecurityConfig {
                     .hasAnyRole("ADMIN", "CASHIER")
                 .requestMatchers(HttpMethod.DELETE, "/api/invoices/**")
                     .hasAnyRole("ADMIN", "CASHIER")
+
+                .requestMatchers(
+                            "/swagger-ui/**",
+                            "/swagger-ui.html",
+                            "/v3/api-docs/**",
+                            "/v3/api-docs",
+                            "/swagger-resources/**",
+                            "/swagger-resources",
+                            "/webjars/**"
+                ).permitAll()
 
                 .anyRequest().authenticated()
             )
